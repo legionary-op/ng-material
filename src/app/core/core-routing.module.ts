@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 
+const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: "full" },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent }
+]
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 
 export class CoreRoutingModule { }
